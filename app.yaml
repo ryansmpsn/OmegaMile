@@ -1,0 +1,44 @@
+service: omegamile
+runtime: nodejs10
+#api_version: 1
+#threadsafe: true
+
+handlers:
+  - url: /css/style.css
+    static_files: www/css/style.css
+    upload: www/css/style.css
+    secure: always
+
+  # file with extensions (longer cache period)
+  - url: /(.*\.(css|js|woff|woff2|ico|png|jpg))
+    static_files: www/\1
+    upload: www/(.*)
+    expiration: "14d"
+    secure: always
+
+  # file with extensions
+  - url: /(.*\..*)
+    static_files: www/\1
+    upload: www/(.*)
+    secure: always
+
+  # assume file without extensions use index.html
+  - url: /(.*)/
+    static_files: www/\1/index.html
+    upload: www/(.*)/index.html
+    secure: always
+
+  - url: /
+    static_files: www/index.html
+    upload: www/index.html
+    secure: always
+
+  - url: /careers
+    static_files: www/careers.html
+    upload: www/careers.html
+    secure: always
+
+  - url: /driver-portal
+    static_files: www/driver-portal.html
+    upload: www/driver-portal.html
+    secure: always

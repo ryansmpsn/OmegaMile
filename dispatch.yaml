@@ -1,0 +1,15 @@
+dispatch:
+  - url: "www.omega-mile.com/"
+    service: omegamile
+
+  - url: "www.vilanomanagementsvs.com/"
+    service: default
+
+  - url: "*app.vilanomanagementsvs.com/*"
+    service: webapp
+
+  - url: "*api.vilanomanagementsvs.com/*"
+    service: centcom
+
+  - url: "*postalfleetsvs.vilanomanagementsvs.com/*"
+    service: postalfleetsvs
